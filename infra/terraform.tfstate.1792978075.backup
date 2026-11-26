@@ -1,0 +1,152 @@
+{
+  "version": 4,
+  "terraform_version": "1.9.8",
+  "serial": 76,
+  "lineage": "7bddec6e-5f3c-9b48-5db1-96875ab852d0",
+  "outputs": {
+    "lts_group_id": {
+      "value": "254dedb1-75b8-4de8-8be4-95f906b53b50",
+      "type": "string"
+    },
+    "obs_patch_bucket": {
+      "value": "patch-mgmt-patch-files",
+      "type": "string"
+    },
+    "obs_script_bucket": {
+      "value": "patch-mgmt-scripts",
+      "type": "string"
+    },
+    "patch_orchestrator_function_urn": {
+      "value": "urn:fss:cn-north-4:cc2cb3d01b0c46798d77c4cd8ecf6b7e:function:default:patch-mgmt-orchestrator:latest",
+      "type": "string"
+    },
+    "run_command_function_urn": {
+      "value": "urn:fss:cn-north-4:cc2cb3d01b0c46798d77c4cd8ecf6b7e:function:default:patch-mgmt-run-command:latest",
+      "type": "string"
+    },
+    "security_group_id": {
+      "value": "a2b7fac0-36b2-4f81-9bc3-c5beb9f498bb",
+      "type": "string"
+    },
+    "smn_topic_urn": {
+      "value": "urn:smn:cn-north-4:cc2cb3d01b0c46798d77c4cd8ecf6b7e:patch-mgmt-notification",
+      "type": "string"
+    },
+    "subnet_id": {
+      "value": "767d45de-534a-4ce0-8b65-b6f7167cb20e",
+      "type": "string"
+    },
+    "vpc_id": {
+      "value": "486d9ca1-e1dd-4de5-9480-54aa338578a8",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "huaweicloud_vpc",
+      "name": "patch_vpc",
+      "provider": "provider[\"registry.terraform.io/huaweicloud/huaweicloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cidr": "10.0.0.0/16",
+            "description": "",
+            "enterprise_project_id": "0",
+            "id": "486d9ca1-e1dd-4de5-9480-54aa338578a8",
+            "name": "myvpc",
+            "region": "cn-north-4",
+            "routes": [],
+            "secondary_cidrs": [],
+            "status": "OK",
+            "tags": {}
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "huaweicloud_smn_topic",
+      "name": "patch_notification",
+      "provider": "provider[\"registry.terraform.io/huaweicloud/huaweicloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access_policy": null,
+            "create_time": "2026-10-23T01:27:15Z",
+            "display_name": "Patch Management Notification",
+            "enterprise_project_id": "0",
+            "id": "urn:smn:cn-north-4:cc2cb3d01b0c46798d77c4cd8ecf6b7e:patch-mgmt-notification",
+            "introduction": "",
+            "name": "patch-mgmt-notification",
+            "push_policy": 0,
+            "region": "cn-north-4",
+            "services_publish_allowed": "",
+            "tags": {
+              "env": "dev",
+              "managed-by": "terraform",
+              "project": "patch-mgmt"
+            },
+            "topic_urn": "urn:smn:cn-north-4:cc2cb3d01b0c46798d77c4cd8ecf6b7e:patch-mgmt-notification",
+            "update_time": "2026-10-23T01:27:15Z",
+            "users_publish_allowed": ""
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "huaweicloud_vpc_subnet",
+      "name": "patch_subnet",
+      "provider": "provider[\"registry.terraform.io/huaweicloud/huaweicloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "availability_zone": "",
+            "cidr": "10.0.5.0/24",
+            "description": "",
+            "dhcp_domain_name": null,
+            "dhcp_enable": true,
+            "dhcp_ipv6_lease_time": null,
+            "dhcp_lease_time": "87600h",
+            "dns_list": [
+              "100.125.1.250",
+              "100.125.129.250"
+            ],
+            "gateway_ip": "10.0.5.1",
+            "id": "767d45de-534a-4ce0-8b65-b6f7167cb20e",
+            "ipv4_subnet_id": "71cd1141-6459-4d28-a711-25013aa765f8",
+            "ipv6_cidr": "",
+            "ipv6_enable": false,
+            "ipv6_gateway": "",
+            "ipv6_subnet_id": "",
+            "name": "patch-mgmt-subnet",
+            "ntp_server_address": null,
+            "primary_dns": "100.125.1.250",
+            "region": "cn-north-4",
+            "secondary_dns": "100.125.129.250",
+            "subnet_id": "71cd1141-6459-4d28-a711-25013aa765f8",
+            "tags": {
+              "managed-by": "terraform",
+              "project": "patch-mgmt"
+            },
+            "timeouts": null,
+            "vpc_id": "486d9ca1-e1dd-4de5-9480-54aa338578a8"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "data.huaweicloud_vpc.patch_vpc"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

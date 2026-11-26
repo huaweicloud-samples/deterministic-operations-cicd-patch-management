@@ -1,0 +1,36 @@
+# CodeArts Build 构建配置 - 黄金镜像阶段
+# 在 CodeArts Build 中运行，创建更新后的黄金镜像
+version: '1.0'
+
+# 构建环境
+environment:
+  image: swr.cn-north-4.myhuaweicloud.com/huaweicloud/python:3.9
+
+# 构建步骤
+steps:
+  # 1. 安装依赖
+  - name: install-deps
+    action: shell
+    commands:
+      - pip install huaweicloudsdkcore huaweicloudsdkecs huaweicloudsdkims huaweicloudsdksmn
+      - curl -sSL https://huaweicloud.com/cli/install.sh | sh
+      - hcloud configure set --region=${REGION}
+
+  # 2. 下载补丁配置和脚本
+  - name: download-config
+    action: shell
+    commands:
+      - hcloud OBS DownloadObject --bucket=${OBS_PATCH_BUCKET} --key=patch.json --path=./patch.json
+      - hcloud OBS DownloadObject --bucket=${OBS_SCRIPT_BUCKET} --key=patch_automation.py --path=./patch_automation.py
+
+  # 3. 更新黄金镜像
+  - name: update-golden-image
+    action: shell
+    commands:
+      - python patch_automation.py -environment=${ENVIRONMENT} -updateGoldenImage=True -topicarn=${SMN_TOPIC_URN} -region=${REGION}
+
+# 构建产物
+artifacts:
+  - name: golden-image-info
+    path: ./golden_image_info.json
+    bucket: ${OBS_PATCH_BUCKET}

@@ -1,0 +1,63 @@
+{
+  "version": 4,
+  "terraform_version": "1.9.8",
+  "serial": 111,
+  "lineage": "7bddec6e-5f3c-9b48-5db1-96875ab852d0",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "huaweicloud_obs_bucket",
+      "name": "patch_scripts",
+      "provider": "provider[\"registry.terraform.io/huaweicloud/huaweicloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acl": "private",
+            "bucket": "patch-mgmt-scripts",
+            "bucket_domain_name": "patch-mgmt-scripts.obs.cn-north-4.myhuaweicloud.com",
+            "bucket_key_enabled": "false",
+            "bucket_version": "3.0",
+            "cors_rule": [],
+            "encryption": true,
+            "enterprise_project_id": "0",
+            "force_destroy": true,
+            "id": "patch-mgmt-scripts",
+            "kms_data_encryption": "",
+            "kms_key_id": "",
+            "kms_key_project_id": "",
+            "lifecycle_rule": [],
+            "logging": [],
+            "multi_az": false,
+            "parallel_fs": false,
+            "policy": "",
+            "policy_format": "obs",
+            "quota": 0,
+            "region": "cn-north-4",
+            "sse_algorithm": "kms",
+            "storage_class": "STANDARD",
+            "storage_info": [
+              {
+                "object_number": 4,
+                "size": 3807
+              }
+            ],
+            "tags": {
+              "env": "dev",
+              "managed-by": "terraform",
+              "project": "patch-mgmt",
+              "purpose": "patch-scripts"
+            },
+            "user_domain_names": [],
+            "versioning": true,
+            "website": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

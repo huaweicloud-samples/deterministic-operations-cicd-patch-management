@@ -1,0 +1,71 @@
+{
+  "version": 4,
+  "terraform_version": "1.9.8",
+  "serial": 78,
+  "lineage": "7bddec6e-5f3c-9b48-5db1-96875ab852d0",
+  "outputs": {
+    "lts_group_id": {
+      "value": "254dedb1-75b8-4de8-8be4-95f906b53b50",
+      "type": "string"
+    },
+    "obs_patch_bucket": {
+      "value": "patch-mgmt-patch-files",
+      "type": "string"
+    },
+    "obs_script_bucket": {
+      "value": "patch-mgmt-scripts",
+      "type": "string"
+    },
+    "patch_orchestrator_function_urn": {
+      "value": "urn:fss:cn-north-4:cc2cb3d01b0c46798d77c4cd8ecf6b7e:function:default:patch-mgmt-orchestrator:latest",
+      "type": "string"
+    },
+    "run_command_function_urn": {
+      "value": "urn:fss:cn-north-4:cc2cb3d01b0c46798d77c4cd8ecf6b7e:function:default:patch-mgmt-run-command:latest",
+      "type": "string"
+    },
+    "security_group_id": {
+      "value": "a2b7fac0-36b2-4f81-9bc3-c5beb9f498bb",
+      "type": "string"
+    },
+    "smn_topic_urn": {
+      "value": "urn:smn:cn-north-4:cc2cb3d01b0c46798d77c4cd8ecf6b7e:patch-mgmt-notification",
+      "type": "string"
+    },
+    "subnet_id": {
+      "value": "767d45de-534a-4ce0-8b65-b6f7167cb20e",
+      "type": "string"
+    },
+    "vpc_id": {
+      "value": "486d9ca1-e1dd-4de5-9480-54aa338578a8",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "huaweicloud_vpc",
+      "name": "patch_vpc",
+      "provider": "provider[\"registry.terraform.io/huaweicloud/huaweicloud\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cidr": "10.0.0.0/16",
+            "description": "",
+            "enterprise_project_id": "0",
+            "id": "486d9ca1-e1dd-4de5-9480-54aa338578a8",
+            "name": "myvpc",
+            "region": "cn-north-4",
+            "routes": [],
+            "secondary_cidrs": [],
+            "status": "OK",
+            "tags": {}
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
